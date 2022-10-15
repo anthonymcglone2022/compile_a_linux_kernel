@@ -1,0 +1,105 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{lipsum}
+\usepackage{times}
+\usepackage{listings}
+%\usepackage{hyperref}
+
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+  {\noindent\raggedright\normalfont% Alignment and font reset
+   \huge\bfseries \@chapapp\space\thechapter~~#1\par\nobreak}% Formatting
+  \vspace{\baselineskip}% ...just a little space
+}
+\makeatother
+
+
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+
+\newcommand{\changeurlcolor}[1]{\hypersetup{urlcolor=#1}}  
+
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\renewcommand{\contentsname}{Table of Contents}
+
+\usepackage{titletoc}
+
+\newcommand{\setupname}[1][\chaptername]{
+\titlecontents{chapter}[0pt]{\vspace{1ex}}{\bfseries#1~\thecontentslabel:\quad}{\bfseries}{\bfseries\hfill\contentspage}[]
+}
+
+\author{Anthony McGlone}\title{Compile and boot a Linux Kernel}
+\begin{document}\maketitle
+
+\tableofcontents
+
+\setupname
+\chapter{Introduction}
+
+\section{Installing Oracle VirtualBox}
+\subsection{MacOS}
+
+1. Open a terminal. Then install Homebrew (steps located: \href{https://brew.sh/}{here})
+\newline
+2. Install Git by running \texttt{brew install git}
+\newline
+3. Open a terminal and run \texttt{git --version} (if Git is installed, the version number should be printed to the console) 
+
+\subsection{Windows}
+
+1. Install Git by downloading the Windows binary from git-scm (\href{https://git-scm.com/downloads}{here})
+\newline
+2. Run the installer
+\newline
+3. Open a Git Bash terminal and run \texttt{git --version} (if Git is installed, the version number should be printed to the console)
+
+
+\subsection{Linux (Ubuntu)}
+
+1. Install Git by opening a terminal and running \texttt{sudo apt-get install git}
+\newline
+2. Run \texttt{git --version} (if Git is installed, the version number should be printed to the console)
+
+
+\subsection{Linux (Red Hat)}
+
+
+1. Install git by opening a terminal and running \texttt{sudo yum install git} 
+\newline
+2. Run \texttt{git --version} (if Git is installed, the version number should be printed to the console)
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

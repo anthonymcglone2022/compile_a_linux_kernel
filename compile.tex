@@ -67,28 +67,28 @@ If you're on Windows or Mac, you can use Oracle's VirtualBox to test an installa
 In your Linux OS or virtual machine, open the kernel home page by navigating to \href{https://www.kernel.org/}{this website}. Download the latest source code by clicking on the large yellow button.
 \newline
 \newline
-The \texttt{tar.xz} file should be downloaded to the \texttt{Downloads} folder. 
+A \texttt{tar.xz} file should be downloaded to the \texttt{Downloads} folder (e.g. \texttt{linux-6.0.2.tar.xz}). 
 
 \section{Extract the source code}
-Open a terminal and navigate to your \texttt{Downloads} folder. Extract the \texttt{tar} file using the \texttt{unxz} command:
+Open a terminal and navigate to your \texttt{Downloads} folder. In the \texttt{unxz} command, replace \texttt{<tar.xz file>} with the downloaded file. Run the command to extract the \texttt{tar} file:
 \newline
 \newline
-\centerline{\texttt{unxz -v linux-6.0.2.tar.xz}}
-\newline
-\newline 
-Start to verify the PGP signature of the \texttt{tar} file that you extracted. On kernel home page, copy the link address from the \texttt{[pgp]} link for the latest kernel version. Then add this link to the \texttt{wget} command and run it:
-\newline
-\newline
-\centerline{\texttt{\footnotesize wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.0.2.tar.sign}}
+\centerline{\texttt{unxz -v <tar.xz file>}}
 \newline
 \newline 
-Retrieve the RSA key needed to complete verification of the PGP signature. Run the following command:
+On the kernel home page, find the table row corresponding to the latest kernel version and copy the link address from the \texttt{[pgp]} link. In the \texttt{wget} command, replace \texttt{<pgp link address>} with this link. Then run the command to download the \texttt{tar.sign} file:
 \newline
 \newline
-\centerline{\texttt{gpg --verify linux-6.0.2.tar.sign}}
+\centerline{\texttt{wget <pgp link address>}}
 \newline
 \newline 
-The output from the command contains the RSA key, which will be used in the verification:
+In the \texttt{gpg} command, replace \texttt{<tar sign file>} with the downloaded \texttt{tar.sign} file. Then run it:
+\newline
+\newline
+\centerline{\texttt{gpg --verify <tar sign file>}}
+\newline
+\newline 
+The output from the command contains the RSA key, which will be used in \texttt{tar} file verification:
 \newline
 \newline
 \texttt{

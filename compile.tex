@@ -76,7 +76,7 @@ Open a terminal and navigate to your \texttt{Downloads} folder. In the \texttt{u
 \centerline{\texttt{unxz -v <tar.xz file>}}
 \newline
 \newline 
-On the kernel home page, find the table row corresponding to the latest kernel version and copy the link address from the \texttt{[pgp]} link. In the \texttt{wget} command, replace \texttt{<pgp link address>} with this link. Then run the command to download the \texttt{tar.sign} file:
+The PGP signature for the \texttt{tar} file should be verified before its contents are extracted. On the kernel home page, find the table row corresponding to the latest kernel version and copy the link address from the \texttt{[pgp]} link. In the \texttt{wget} command, replace \texttt{<pgp link address>} with this link. Then run the command to download the \texttt{tar.sign} file:
 \newline
 \newline
 \centerline{\texttt{wget <pgp link address>}}
@@ -88,7 +88,7 @@ In the \texttt{gpg} command, replace \texttt{<tar sign file>} with the downloade
 \centerline{\texttt{gpg --verify <tar sign file>}}
 \newline
 \newline 
-The output from the command contains the RSA key, which will be used in \texttt{tar} file verification:
+The output from the command contains the RSA key, which will be used in the verification of the \texttt{tar.sign} file's signature:
 \newline
 \newline
 \texttt{
@@ -101,7 +101,43 @@ gpg:                using RSA key \textbf{647F28654894E3BD457199BE38DBBDC8609269
 gpg: Can't check signature: No public key
 }
 \newline
-
+\newline
+Replace \texttt{<RSA key>} in the following command with the \texttt{RSA key} from \textbf{your} terminal output. Then run the command (it will download a public key that will be used in the verification):
+\newline
+\newline
+\centerline{\texttt{\small gpg --recv-keys --keyserver hkps://keyserver.ubuntu.com <RSA key>}}
+\newline
+\newline 
+Re-run the \texttt{--verify} command to complete the signature verification:
+\newline
+\newline
+\centerline{\texttt{gpg --verify <tar sign file>}}
+\newline
+\newline
+If successful, the output should look like this (PTO):
+\newline
+\newline
+\texttt{\footnotesize
+gpg: assuming signed data in 'linux-6.0.2.tar'
+\\
+gpg: Signature made Sat 15 Oct 2022 07:04:02 IST
+\\
+gpg:                using RSA key 647F28654894E3BD457199BE38DBBDC86092693E
+\\
+gpg: Good signature from "Greg Kroah-Hartman <gregkh@linuxfoundation.org>"
+\\
+gpg:                 aka "Greg Kroah-Hartman <gregkh@kernel.org>" [unknown]
+\\
+gpg:                 aka "Greg Kroah-Hartman (Linux kernel stable release signing key)
+\\
+gpg: WARNING: This key is not certified with a trusted signature!
+\\
+gpg:          There is no indication that the signature belongs to the owner.
+\\
+Primary key fingerprint: 647F 2865 4894 E3BD 4571  99BE 38DB BDC8 6092 693E
+}
+\newline
+\newline
 
 
 

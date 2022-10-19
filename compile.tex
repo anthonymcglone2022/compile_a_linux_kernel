@@ -42,7 +42,7 @@
 \setupname
 \chapter{Introduction}
 
-This guide will demonstrate the basic process of compiling and booting a Linux kernel. More advanced kernel configuration (such as enabling a device driver or new kernel features) will not be demonstrated. 
+This guide will demonstrate the basic process of compiling and booting a Linux kernel. More advanced kernel configuration (such as enabling a device driver or new kernel features) will not be covered. 
 \newline
 \newline
 If you're already using a Linux operating system (such as Ubuntu, Red Hat or CentOS), you can skip ahead to the kernel installation instructions for your OS. 
@@ -62,9 +62,45 @@ If you're on Windows or Mac, you can use Oracle's VirtualBox to test an installa
 
 
 
+\chapter{Ubuntu}
+\section{Download the latest Linux kernel}
+In your Linux OS or virtual machine, open the kernel home page by navigating to \href{https://www.kernel.org/}{this website}. Download the latest source code by clicking on the large yellow button.
+\newline
+\newline
+The \texttt{tar.xz} file should be downloaded to the \texttt{Downloads} folder. 
 
-
-
+\section{Extract the source code}
+Open a terminal and navigate to your \texttt{Downloads} folder. Extract the \texttt{tar} file using the \texttt{unxz} command:
+\newline
+\newline
+\centerline{\texttt{unxz -v linux-6.0.2.tar.xz}}
+\newline
+\newline 
+Start to verify the PGP signature of the \texttt{tar} file that you extracted. On kernel home page, copy the link address from the \texttt{[pgp]} link for the latest kernel version. Then add this link to the \texttt{wget} command and run it:
+\newline
+\newline
+\centerline{\texttt{\footnotesize wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.0.2.tar.sign}}
+\newline
+\newline 
+Retrieve the RSA key needed to complete verification of the PGP signature. Run the following command:
+\newline
+\newline
+\centerline{\texttt{gpg --verify linux-6.0.2.tar.sign}}
+\newline
+\newline 
+The output from the command contains the RSA key, which will be used in the verification:
+\newline
+\newline
+\texttt{
+gpg: assuming signed data in 'linux-6.0.2.tar'
+\\
+gpg: Signature made Sat 15 Oct 2022 07:04:02 IST
+\\
+gpg:                using RSA key \textbf{647F28654894E3BD457199BE38DBBDC86092693E}
+\\
+gpg: Can't check signature: No public key
+}
+\newline
 
 
 

@@ -42,7 +42,7 @@
 \setupname
 \chapter{Introduction}
 
-This guide will demonstrate the basic process of compiling and booting a Linux kernel. More advanced kernel configuration (such as enabling a device driver or new kernel features) will not be covered. 
+This guide will demonstrate the basic process of compiling and booting a Linux kernel. More advanced kernel configuration (such as enabling device drivers or new kernel modules) will not be covered. 
 \newline
 \newline
 If you're already using a Linux operating system (such as Ubuntu, Red Hat or CentOS), you can skip ahead to the kernel installation instructions for your OS. 
@@ -151,10 +151,17 @@ Extract the Linux kernel code using the \texttt{tar} command:
 \centerline{\texttt{tar xvf <the tar file>}}
 \newline
 \newline
-There should now be a folder with the extracted ource code (e.g. \texttt{linux-6.0.2/}) 
+There should now be a folder with the extracted source code (e.g. \texttt{linux-6.0.2/}) 
 
-\section{Configuring the kernel - Part 1}
-\texttt{cd} into the extracted folder. Then copy the existing kernel configuration to the \texttt{.config} file:
+\section{Configuring the kernel}
+\texttt{cd} into the extracted folder. Before compiling the kernel, we must choose the modules that we wish to include. This can be done in two steps. First, copy the modules from the existing kernel configuration to the new configuration file:
+\newline
+\newline
+\centerline{\texttt{cp -v /boot/config-\$(uname -r) .config}}
+\newline
+\newline
+The next step is to run \texttt{make menuconfig}. This will load a graphical dialog (see below). With this dialog, you can add or remove modules from the config.
+
 
 \end{document}
 

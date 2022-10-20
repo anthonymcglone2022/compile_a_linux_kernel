@@ -172,7 +172,7 @@ Extract the Linux kernel code using the \texttt{tar} command:
 \newline
 There should now be a folder with the extracted source code (e.g. \texttt{linux-6.0.2/}) 
 
-\section{Configuring the kernel}
+\section{Configure the kernel}
 \texttt{cd} into the extracted folder. Before compiling the kernel, we must choose the modules that we wish to include. This can be done in two steps. First, copy the modules from the existing kernel configuration to the new configuration file:
 \newline
 \newline
@@ -193,7 +193,7 @@ Navigate around the dialog to examine the submenus. Then exit the dialog.
 
 
 
-\section{Compiling the kernel}
+\section{Compile the kernel}
 The kernel compilation process can take some time to run. To compile the kernel, use the \texttt{make} command. Specify the number of cores to use in the compilation with the \texttt{-j} option. The following command will run the compilation with two cores:
 \newline
 \newline
@@ -201,6 +201,33 @@ The kernel compilation process can take some time to run. To compile the kernel,
 \newline
 \newline 
 When the compilation is finished, the console will be returned to the user.
+
+\section{Install the kernel}
+To prepare for installation, install the kernel modules:
+\newline
+\newline
+\centerline{\texttt{sudo make modules\char`_install}}
+\newline
+\newline 
+Once the command prompt is returned, run the kernel installation command:
+\newline
+\newline
+\centerline{\texttt{sudo make install}}
+\newline
+\newline 
+When the install command is finished, run \texttt{ls -l /boot}. Three files should be updated (with \texttt{X.X.X} corresponding to the version number of the kernel):
+\newline
+\newline
+\centerline{\texttt{
+initramfs-X.X.X.img
+\\
+System.map-X.X.X
+\\
+vmlinuz-X.X.X
+}}
+\newline
+\newline
+
 
 \end{document}
 

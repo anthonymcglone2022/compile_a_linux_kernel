@@ -109,12 +109,26 @@ gpg: Can't check signature: No public key
 }
 \newline
 \newline
-Replace \texttt{<RSA key>} in the following command with the \texttt{RSA key} from \textbf{your} terminal output. Then run the command (it will download a public key that will be used in the verification):
+Replace \texttt{<RSA key>} in the following command with the \texttt{RSA key} from \textbf{your} terminal output. Then run the following command:
 \newline
 \newline
 \centerline{\texttt{\small gpg --recv-keys --keyserver hkps://keyserver.ubuntu.com <RSA key>}}
 \newline
-\newline 
+\newline
+This command should download a public key that will be used in the verification. The output will look like this:
+\newline
+\newline
+\texttt{\scriptsize
+gpg: key 38DBBDC86092693E: 1 duplicate signature removed
+\\
+gpg: key 38DBBDC86092693E: public key "Greg Kroah-Hartman <gregkh@linuxfoundation.org>" imported
+\\
+gpg: Total number processed: 1
+\\
+gpg:               imported: 1
+}
+\newline
+\newline
 Re-run the \texttt{--verify} command to complete the signature verification:
 \newline
 \newline
@@ -160,8 +174,10 @@ There should now be a folder with the extracted source code (e.g. \texttt{linux-
 \centerline{\texttt{cp -v /boot/config-\$(uname -r) .config}}
 \newline
 \newline
-The next step is to run \texttt{make menuconfig}. This will load a graphical dialog (see below). With this dialog, you can add or remove modules from the config.
-
+The next step is to run \texttt{make menuconfig}. This will load a graphical dialog (see Figure 1). With this dialog, you can add or remove modules from the config.
+\newline
+\newline
+Use the up/down arrow keys to navigate vertically. Return is used to select a submenu in the dialog. Typing \texttt{Y} will include a feature. Typing \texttt{N} will exclude it. Use the left/right arrow keys to navigate to \texttt{Exit} when you want exit a submenu or the dialog. 
 
 \end{document}
 

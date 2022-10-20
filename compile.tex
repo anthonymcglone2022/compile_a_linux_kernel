@@ -4,6 +4,7 @@
 \usepackage{lipsum}
 \usepackage{times}
 \usepackage{listings}
+\usepackage{graphicx}
 %\usepackage{hyperref}
 
 \makeatletter
@@ -12,6 +13,10 @@
    \huge\bfseries \@chapapp\space\thechapter~~#1\par\nobreak}% Formatting
   \vspace{\baselineskip}% ...just a little space
 }
+\makeatother
+
+\makeatletter
+\setlength{\@fptop}{0pt}
 \makeatother
 
 
@@ -174,10 +179,28 @@ There should now be a folder with the extracted source code (e.g. \texttt{linux-
 \centerline{\texttt{cp -v /boot/config-\$(uname -r) .config}}
 \newline
 \newline
-The next step is to run \texttt{make menuconfig}. This will load a graphical dialog (see Figure 1). With this dialog, you can add or remove modules from the config.
+The next step is to run \texttt{make menuconfig}. This will load a graphical dialog (see Figure 2.1). The dialog can be used to add or remove modules from the config (we will not edit the config at this time).
+A quick note on the dialog controls. Use the up/down arrow keys to navigate vertically. Use the Enter/return key to select a submenu in the dialog. Typing \texttt{Y} will include a feature. Typing \texttt{N} will exclude it. Use the left/right arrow keys to navigate to \texttt{Exit} when you want exit a submenu or the dialog.
 \newline
 \newline
-Use the up/down arrow keys to navigate vertically. Return is used to select a submenu in the dialog. Typing \texttt{Y} will include a feature. Typing \texttt{N} will exclude it. Use the left/right arrow keys to navigate to \texttt{Exit} when you want exit a submenu or the dialog. 
+Navigate around the dialog to examine the submenus. Then exit the dialog.
+
+\begin{figure}[t!]
+\centerline{\includegraphics{2_of_n.png}}
+\caption{Linux kernel configuration dialog}
+\label{fig}
+\end{figure}
+
+
+
+\section{Compiling the kernel}
+The kernel compilation process can take some time to run. To compile the kernel, use the \texttt{make} command. Specify the number of cores to use in the compilation with the \texttt{-j} option. The following command will run the compilation with two cores:
+\newline
+\newline
+\centerline{\texttt{make -j 2}}
+\newline
+\newline 
+When the compilation is finished, the console will be returned to the user.
 
 \end{document}
 

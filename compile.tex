@@ -63,11 +63,18 @@ If you're on Windows or Mac, you can use Oracle's VirtualBox to test an installa
 
 
 \chapter{Ubuntu}
+
+\section{Pre-requisites}
+Install the GCC compiler and other tools required to compile the kernel:
+\newline
+\newline
+\centerline{\texttt{\scriptsize sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev}}
+
 \section{Download the latest Linux kernel}
 In your Linux OS or virtual machine, open the kernel home page by navigating to \href{https://www.kernel.org/}{this website}. Download the latest source code by clicking on the large yellow button.
 \newline
 \newline
-A \texttt{tar.xz} file should be downloaded to the \texttt{Downloads} folder (e.g. \texttt{linux-6.0.2.tar.xz}). 
+A \texttt{tar.xz} file should be downloaded to the \texttt{Downloads} folder (e.g. \texttt{\small linux-6.0.2.tar.xz}). 
 
 \section{Extract the source code}
 Open a terminal and navigate to your \texttt{Downloads} folder. In the \texttt{unxz} command, replace \texttt{<tar.xz file>} with the downloaded file. Run the command to extract the \texttt{tar} file:
@@ -114,7 +121,7 @@ Re-run the \texttt{--verify} command to complete the signature verification:
 \centerline{\texttt{gpg --verify <tar sign file>}}
 \newline
 \newline
-If successful, the output should look like this (PTO):
+If successful, the output should look like this:
 \newline
 \newline
 \texttt{\footnotesize
@@ -138,8 +145,16 @@ Primary key fingerprint: 647F 2865 4894 E3BD 4571  99BE 38DB BDC8 6092 693E
 }
 \newline
 \newline
+Extract the Linux kernel code using the \texttt{tar} command:
+\newline
+\newline
+\centerline{\texttt{tar xvf <the tar file>}}
+\newline
+\newline
+There should now be a folder with the extracted ource code (e.g. \texttt{linux-6.0.2/}) 
 
-
+\section{Configuring the kernel - Part 1}
+\texttt{cd} into the extracted folder. Then copy the existing kernel configuration to the \texttt{.config} file:
 
 \end{document}
 

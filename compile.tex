@@ -230,15 +230,44 @@ When the install command is finished, run \texttt{ls -l /boot}. Three files shou
 \newline
 \newline
 \centerline{\texttt{
-initramfs-X.X.X.img
+initrd.img-X.X.X
 \\
 System.map-X.X.X
 \\
 vmlinuz-X.X.X
 }}
+\section{Boot the new kernel}
+Reboot your Linux OS with the command:
 \newline
 \newline
+\centerline{\texttt{reboot}}
+\newline
+\newline 
+When you have rebooted, open a terminal and run:
+\newline
+\newline
+\centerline{\texttt{uname -mrs}}
+\newline
+\newline 
+You should see the version of the updated kernel.
 
+\chapter{Red Hat - CentOS}
+
+\section{Prerequisites}
+In your Linux OS or VM, open a terminal. Install the GCC compiler:
+\newline
+\newline
+\centerline{\texttt{sudo yum groupinstall "Development Tools"}}
+\newline
+\newline 
+Install the additional tools required to compile the kernel:
+\newline
+\newline
+\centerline{\texttt{\scriptsize sudo yum install ncurses-devel bison flex elfutils-libelf-devel openssl-devel}}
+
+
+\section{Download the latest Linux kernel}
+TODO: Combine this section with the previous one.
 
 \end{document}
 

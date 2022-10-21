@@ -185,10 +185,16 @@ A quick note on the dialog controls. Use the up/down arrow keys to navigate vert
 \newline
 Navigate around the dialog to examine the submenus. Then exit the dialog. Before moving to the compilation, run the following commands to ensure there are no certificate signing errors during the process:
 \newline
-\newline
-\texttt{scripts/config --disable SYSTEM\char`_TRUSTED\char`_KEYS}
-\newline
-\texttt{scripts/config --disable SYSTEM\char`_REVOCATION\char`_KEYS}
+%\texttt{scripts/config --disable SYSTEM\char`_TRUSTED\char`_KEYS}
+%\newline
+%\texttt{scripts/config --disable SYSTEM\char`_REVOCATION\char`_KEYS}
+
+\centerline{
+  \begin{tabular}{l}
+    \texttt{scripts/config --disable SYSTEM\char`_TRUSTED\char`_KEYS} \\
+    \texttt{scripts/config --disable SYSTEM\char`_REVOCATION\char`_KEYS} \\
+  \end{tabular}
+}
 
 \begin{figure}[t!]
 \centerline{\includegraphics{2_of_n.png}}

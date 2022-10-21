@@ -53,7 +53,7 @@ This guide will demonstrate the basic process of compiling and booting a Linux k
 If you're already using a Linux operating system (such as Ubuntu, Red Hat or CentOS), you can skip ahead to the kernel installation instructions for your OS. 
 \newline
 \newline
-If you're on Windows or Mac, you can use Oracle's VirtualBox to test an installation.
+If you're on Windows or Mac, you can use Oracle's VirtualBox to test an installation on a virtual machine. The size of the VM's hard disk should be at least 50 GB.
 
 \section{Installing Oracle VirtualBox}
 
@@ -67,7 +67,7 @@ If you're on Windows or Mac, you can use Oracle's VirtualBox to test an installa
 
 
 
-\chapter{Ubuntu}
+\chapter{Debian - Ubuntu - Linux Mint}
 
 \section{Prerequisites}
 In your Linux OS or VM, open a terminal. Install the GCC compiler and the other tools required to compile the kernel:
@@ -183,7 +183,7 @@ The next step is to run \texttt{make menuconfig}. This will load a graphical dia
 A quick note on the dialog controls. Use the up/down arrow keys to navigate vertically. Use the Enter/return key to select a submenu in the dialog. Typing \texttt{Y} will include a feature. Typing \texttt{N} will exclude it. Use the left/right arrow keys to navigate to \texttt{Exit} when you want exit a submenu or the dialog.
 \newline
 \newline
-Navigate around the dialog to examine the submenus. Then exit the dialog. Before moving to the compilation, run the following commands to ensure there are no certificate signing errors during the process:
+Navigate around the dialog to examine the submenus. Then exit the dialog. Run the following commands to ensure there are no certificate signing errors during the compilation process:
 \newline
 %\texttt{scripts/config --disable SYSTEM\char`_TRUSTED\char`_KEYS}
 %\newline
@@ -211,7 +211,7 @@ The kernel compilation process can take some time to run. To compile the kernel,
 \centerline{\texttt{make -j 2}}
 \newline
 \newline 
-\textbf{Note:} once you run this command, you will have to answer a long list of questions. Press the Enter/return key to select the default option for each answer. When the compilation is finished, the console will be returned to the user.
+\textbf{Note:} once you run this command, you will have to answer a long list of questions. Press the Enter/return key to select the default option for each answer. When the compilation is finished, the command prompt will be returned to the user.
 
 \section{Install the kernel}
 To prepare for installation, install the kernel modules:
@@ -226,7 +226,7 @@ Once the command prompt is returned, run the kernel installation command:
 \centerline{\texttt{sudo make install}}
 \newline
 \newline 
-When the install command is finished, run \texttt{ls -l /boot}. Three files should be updated (with \texttt{X.X.X} corresponding to the version number of the kernel):
+When the install command is finished, run \texttt{ls -l /boot}. Three files should be updated (\texttt{X.X.X} should show the version number of the kernel):
 \newline
 \newline
 \centerline{\texttt{

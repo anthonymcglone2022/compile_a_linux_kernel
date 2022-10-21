@@ -50,10 +50,10 @@
 This guide will demonstrate the basic process of compiling and booting a Linux kernel. More advanced kernel configuration (such as enabling device drivers or new kernel modules) will not be covered. 
 \newline
 \newline
-If you're already using a Linux operating system (such as Ubuntu, Red Hat or CentOS), you can skip ahead to the kernel installation instructions for your OS. 
+If you're already using a Linux operating system, you can skip ahead to the kernel installation instructions for your OS. 
 \newline
 \newline
-If you're on Windows or Mac, you can use Oracle's VirtualBox to test an installation on a virtual machine. The size of the VM's hard disk should be at least 50 GB.
+If you're on Windows or Mac, you can use Oracle's VirtualBox to build a Linux virtual machine. The size of the VM's hard disk should be at least 50 GB.
 
 \section{Installing Oracle VirtualBox}
 
@@ -82,19 +82,19 @@ Open the kernel home page by navigating to \href{https://www.kernel.org/}{this w
 A \texttt{tar.xz} file should be downloaded to the \texttt{Downloads} folder (e.g. \texttt{\small linux-6.0.2.tar.xz}). 
 
 \section{Extract the source code}
-Navigate to your \texttt{Downloads} folder. In the \texttt{unxz} command, replace \texttt{<tar.xz file>} with the downloaded file. Run the command to extract the \texttt{tar} file:
+Navigate to your \texttt{Downloads} folder. In the \texttt{unxz} command below, replace \texttt{<tar.xz file>} with the downloaded file. Run the command to extract the \texttt{tar} file:
 \newline
 \newline
 \centerline{\texttt{unxz -v <tar.xz file>}}
 \newline
 \newline 
-The PGP signature for the \texttt{tar} file should be verified before its contents are extracted. On the kernel home page, find the table row corresponding to the latest kernel version and copy the link address from the \texttt{[pgp]} link. In the \texttt{wget} command, replace \texttt{<pgp link address>} with this link. Then run the command to download the \texttt{tar.sign} file:
+The PGP signature for the \texttt{tar} file should be verified before its contents are extracted. On the kernel home page, find the table row corresponding to the latest kernel version and copy the link address from the \texttt{[pgp]} link. In the \texttt{wget} command below, replace \texttt{<pgp link address>} with this link. Then run the command to download the \texttt{tar.sign} file:
 \newline
 \newline
 \centerline{\texttt{wget <pgp link address>}}
 \newline
 \newline 
-In the \texttt{gpg} command, replace \texttt{<tar sign file>} with the downloaded \texttt{tar.sign} file. Then run it:
+Next, start the verification process. In the \texttt{gpg} command below, replace \texttt{<tar sign file>} with the downloaded \texttt{tar.sign} file. Then run it:
 \newline
 \newline
 \centerline{\texttt{gpg --verify <tar sign file>}}

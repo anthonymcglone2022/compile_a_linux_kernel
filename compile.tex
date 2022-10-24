@@ -100,7 +100,7 @@ Next, start the verification process. In the \texttt{gpg} command below, replace
 \centerline{\texttt{gpg --verify <tar sign file>}}
 \newline
 \newline 
-The output from the command contains the RSA key, which will be used in the verification of the \texttt{tar.sign} file's signature:
+The output from the command contains the RSA key, which will be used in the verification of the \texttt{tar} file's signature:
 \newline
 \newline
 \texttt{
@@ -114,7 +114,7 @@ gpg: Can't check signature: No public key
 }
 \newline
 \newline
-Replace \texttt{<RSA key>} in the following command with the \texttt{RSA key} from \textbf{your} terminal output. Then run the following command:
+Replace \texttt{<RSA key>} in the following command with the \texttt{RSA key} from your terminal's output. Then run the following command:
 \newline
 \newline
 \centerline{\texttt{\small gpg --recv-keys --keyserver hkps://keyserver.ubuntu.com <RSA key>}}
@@ -134,7 +134,7 @@ gpg:               imported: 1
 }
 \newline
 \newline
-Re-run the \texttt{--verify} command to complete the signature verification:
+Re-run the following command to complete the signature verification:
 \newline
 \newline
 \centerline{\texttt{gpg --verify <tar sign file>}}
@@ -173,13 +173,13 @@ Extract the Linux kernel code using the \texttt{tar} command:
 There should now be a folder with the extracted source code (e.g. \texttt{linux-6.0.2/}) 
 
 \section{Configure the kernel}
-\texttt{cd} into the extracted folder. Before compiling the kernel, we must choose the modules that we wish to include. This can be done in two steps. First, copy the modules from the existing kernel configuration to the new configuration file:
+\texttt{cd} into the extracted folder. Before compiling the kernel, choose the modules that should be included in it. First, copy the modules from the existing kernel configuration to the new configuration file:
 \newline
 \newline
 \centerline{\texttt{cp -v /boot/config-\$(uname -r) .config}}
 \newline
 \newline
-The next step is to run \texttt{make menuconfig}. This will load a graphical dialog (see Figure 2.1). The dialog can be used to add or remove modules from the config (we will not edit the config at this time).
+The next step is to run \texttt{make menuconfig}. This will load a graphical dialog (see Figure 2.1). The dialog can be used to add or remove modules from the config (do not edit the config at this time).
 A quick note on the dialog controls. Use the up/down arrow keys to navigate vertically. Use the Enter/return key to select a submenu in the dialog. Typing \texttt{Y} will include a feature. Typing \texttt{N} will exclude it. Use the left/right arrow keys to navigate to \texttt{Exit} when you want exit a submenu or the dialog.
 \newline
 \newline
@@ -211,7 +211,7 @@ The kernel compilation process can take quite some time to run. To compile the k
 \centerline{\texttt{make -j 2}}
 \newline
 \newline 
-\textbf{Note:} once you run this command, you will have to answer a long list of questions. Press the Enter/return key to select the default option for each answer. When the compilation is finished, the command prompt will be returned to the user.
+\textbf{Note:} once you run this command, you will have to answer a long list of questions. Press the Enter/return key to select the default option for each answer. When the compilation is finished, the command prompt will be returned.
 
 \section{Install the kernel}
 To prepare for installation, install the kernel modules:
@@ -226,7 +226,7 @@ Once the command prompt is returned, run the kernel installation command:
 \centerline{\texttt{sudo make install}}
 \newline
 \newline 
-When the install command is finished, run \texttt{ls -l /boot}. Three files should be updated (\texttt{X.X.X} should show the version number of the kernel):
+When the install command is finished, run \texttt{ls -l /boot}. Three files should be updated (\texttt{X.X.X} should show the version number of the new kernel):
 \newline
 \newline
 \centerline{\texttt{

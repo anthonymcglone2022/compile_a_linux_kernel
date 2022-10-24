@@ -53,17 +53,17 @@ This guide will demonstrate the basic process of compiling and booting a Linux k
 If you're already using a Linux operating system, you can skip ahead to the kernel installation instructions for your OS. 
 \newline
 \newline
-If you're on Windows or Mac, you can use Oracle's VirtualBox to build a Linux virtual machine. The size of the VM's hard disk should be at least 50 GB.
+If you're on Windows or Mac, you can use Oracle's VirtualBox to build a Linux virtual machine. The VM's hard disk size should be at least 50 GB.
 
 \section{Installing Oracle VirtualBox}
 
 1. Read the \href{https://www.virtualbox.org/manual/ch02.html}{installation instructions} for your OS.
 \newline
-2. Download the VirtualBox \href{https://www.virtualbox.org/wiki/Downloads}{binary / package} for your OS.
+2. Download the VirtualBox \href{https://www.virtualbox.org/wiki/Downloads}{binary/package} for your OS.
 \newline
 3. Download an ISO of a Linux OS (e.g. \href{https://ubuntu.com/download/desktop}{Ubuntu}, \href{https://www.centos.org/download/}{CentOS}, \href{https://getfedora.org/workstation/download/}{Fedora}).
 \newline
-4. \href{https://docs.oracle.com/cd/E26217_01/E26796/html/qs-create-vm.html}{Create a virtual machine} using the ISO / installation media.
+4. \href{https://docs.oracle.com/cd/E26217_01/E26796/html/qs-create-vm.html}{Create a virtual machine} using the ISO/installation media.
 
 
 
@@ -173,7 +173,7 @@ Extract the Linux kernel code using the \texttt{tar} command:
 There should now be a folder with the extracted source code (e.g. \texttt{linux-6.0.2/}) 
 
 \section{Configure the kernel}
-\texttt{cd} into the extracted folder. Before compiling the kernel, choose the modules that should be included in it. First, copy the modules from the existing kernel configuration to the new configuration file:
+\texttt{cd} into the extracted folder. Before compiling the kernel, choose the modules that should be included. First, copy the modules from the existing kernel configuration to the new configuration file:
 \newline
 \newline
 \centerline{\texttt{cp -v /boot/config-\$(uname -r) .config}}
@@ -205,7 +205,7 @@ Navigate around the dialog to examine the submenus. Then exit the dialog. Run th
 
 
 \section{Compile the kernel}
-The kernel compilation process can take quite some time to run. To compile the kernel, use the \texttt{make} command. Specify the number of cores to use in the compilation with the \texttt{-j} option. The following command will run the compilation with two cores:
+The kernel compilation process can take quite some time. To compile the kernel, use the \texttt{make} command. Specify the number of cores to use in the compilation with the \texttt{-j} option. The following command will run the compilation with two cores:
 \newline
 \newline
 \centerline{\texttt{make -j 2}}
